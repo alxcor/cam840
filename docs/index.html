@@ -1,0 +1,225 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="Sinumerik, Solution Line, Totally Integrated Automation, Step7, Qt, C++, HMI, Create MyHMI/3GL">
+<meta name="description" content="Create MyHMI /3GL Examples">
+<head><title>Create MyHMI /3GL Examples</title>
+  <style>
+    /* Setari generale: chenar, fonturi, etc. */
+    * { box-sizing: border-box;}
+    body {font-family: Arial, sans-serif; font-size: 100%;}
+    h1 {font-family: Garamond, serif; font-size: 2.500rem;}
+    h2 {font-family: Garamond, serif; font-size: 1.875rem;}
+    h3 {font-family: Garamond, serif; font-size: 1.300rem;}
+    table {border-collapse: collapse;width: 100%;}
+    th {border: 1px solid #004080;}
+    td {border: 1px solid #004080;}
+    tr:nth-child(odd) {background-color: rgba(120, 120, 170, 0.4);
+}    /* Logo: data/versiune; titlu; subtitlu */
+    .logo1p {
+      margin-top: 5px; margin-left: 15px; margin-right: 10px;
+      font-family: Arial; font-size: 0.8rem; line-height: 10px;
+      text-align: right; color: #004080; }
+    .logo2p { 
+      margin-top: 10px; margin-left: 15px; margin-right: 10px;
+      font-family: Arial; font-size: 3rem; line-height: 50px;
+      text-align: left; color: #303050; }
+    .logo3p {
+      margin-top: -20px; margin-left: 180px; margin-right: 10px;
+      font-family: Arial; font-size: 2.5rem; line-height: 35px;
+      text-align: left; color: #90909F; }
+    /* Bara meniu orizontal: setari fundal */
+    .menu_bar {
+      display: flex; flex-direction: row; align-items: center;
+      background-color: #303050;
+      background: linear-gradient(to left, #00000F, #505070);
+      color: #90909F; height: 50px; font-family: Arial;
+      position: sticky; top: 0;  padding: 0;}
+    /* Bara meniu orizontal: Menu Button Container */
+    .menu_ctn {
+      display: none; height: 100%; width: 60px; cursor: pointer;
+      flex-direction: column; justify-content: center;
+      align-items: center;}
+    /* Bara meniu orizontal: Menu Button */
+    .menu_btn, .menu_btn::before, .menu_btn::after {
+      display: block; background-color: #90909F; position: absolute;
+      height: 4px; width: 30px; border-radius: 2px;
+      transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);}
+    .menu_btn::before { content: ''; margin-top: -8px;}
+    .menu_btn::after  { content: ''; margin-top:  8px;}
+    #menu_tog { display: none;}
+    #menu_tog:checked + .menu_ctn .menu_btn {
+      background: rgba(255, 255, 255, 0);}
+    #menu_tog:checked + .menu_ctn .menu_btn::before {
+      margin-top: 0px; transform: rotate(45deg);}
+    #menu_tog:checked + .menu_ctn .menu_btn::after {
+      margin-top: 0px; transform: rotate(-45deg);}
+    /* Bara meniu orizontal: lista orizontala */
+    .menu_lst {
+      display: flex; flex-direction: row; list-style-type: none;
+      margin: 0; padding: 0;}
+    /* Bara meniu orizontal: setari elemente lista li */
+    .menu_lst > li { margin: 0; overflow: hidden;}
+    .menu_lst li:hover { background:#404040;}
+    .menu_lst li.active {background-color: #6060A0;}
+    /* Bara meniu orizontal: setari aliniat li */
+    .menu_lst li a {
+      display: block; color: #F4F4FF; text-align: left;
+      padding: 14px; text-decoration: none; font-size: 1rem;}
+    .menu_lst li a:hover{ background-color: #404040;}
+    /* Element principal tip 1 */
+    .elem_top { background: url("images/header.png") center;
+      background-size: cover; padding: 0rem 2rem; padding-bottom: 4rem;
+      display: grid; align-items: center;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));}
+    .elem_top > * {color: white;}
+    .elem_top > h1 {font-size: 3rem; padding-bottom: 0.5rem;
+      background-color: rgba(0,0,0,0.5); color: #F0F0FF;}
+    /* Element principal tip 2 */
+    .elem_tos { padding: 0rem; margin: 0rem;}
+    .elem_tos > figure {height: 340px; overflow: hidden; margin:0rem;}
+    /* Element lista 2*/
+    .elem_lst {padding: 0.2rem; margin 0.2rem;}
+    .elem_lst > ul {
+      list-style-type: none; display: list-item; grid-gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      padding: 0.2rem;}
+    .elem_lst > ul > li {border: 1px solid #90909F;}
+    .elem_lst > ul > li > figure {
+      height: 200px; overflow: hidden; margin:0.1rem;}
+    .elem_lst > ul > li > figure > img {width: 100%;}
+    .elem_lst > ul > li > figure > figcaption {
+      position: absolute; bottom: 0;
+      background-color: rgba(0,0,0,0.7); width: 100%;}
+    .elem_lst > ul > li > figure > figcaption > h3 {
+      color: white; padding: .75rem; font-size: 1.25rem;}
+    .elem_lst > ul > li > p {
+      font-size: 1rem; line-height: 1; padding: 0.2rem .2rem;
+      <!--color: #90909F;-->}
+    .elem_lst > ul > li > p > a {
+      font-size: 0.8rem; line-height: 1; padding: 0.5rem;
+      background-color: 40404F; text-decoration: none;
+      color: FFFFFF; border-radius: .25rem;
+      text-align: center; display: inline-block;}
+    .footer {
+      background-color: #606060; color: white; padding: .25rem;
+      text-align: right; font-size: .5rem;}
+    @media (max-width: 800px) {
+      .menu_ctn { display: flex;}
+      #menu_tog ~ .menu_lst li {
+        height: 0; margin: 0; padding: 0; border: 0;
+        transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);}
+      #menu_tog:checked ~ .menu_lst li {
+        border: 1px solid #30303F; height: 2.5rem;
+        transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);}
+      .menu_lst {
+        position: absolute; top: 0; margin-top: 50px; left: 0;
+        flex-direction: column; width: 100%;
+        justify-content: center; align-items: center;}
+      .menu_lst > li {
+        display: flex; justify-content: left; margin: 0;
+        padding: 0.5rem 0; width: 100%; color: white;
+        background-color: #10102F;}
+    }
+  </style>
+</head>
+<!-- START BODY ... -->
+<body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+  <!-- START Header Area ... -->
+  <a name="#top"> </a>
+  <div class="logo1p" align="center">v22.12.16; Dec.2022</div>
+  <div class="logo2p" align="center"><b>Create MyHMI /3GL</b></div>
+  <div class="logo3p" align="center"><b>examples</b></div>
+  <!-- END Header Area ... -->
+  <!-- START Menu Bar ... -->
+  <section class="menu_bar">
+    <input id="menu_tog" type="checkbox" />
+    <label class='menu_ctn' for="menu_tog">
+      <div class='menu_btn'></div>
+    </label>
+    <ul class="menu_lst">
+      <li><a href="http://alxcor.github.io">Home</a></li>
+      <li><a href="index_ro.html">Romana</a></li>
+      <li class="active"><a href="http://github.com/alxcor/cam840">MyHMI/3GL</a></li>
+      <li><a href="#identify">Identify</a></li>
+      <li><a href="#download">Download</a></li>
+      <li><a href="#install">Install</a></li>
+      <li><a href="#documentation">Documentation</a></li>
+    </ul>
+  </section>
+<!-- END Menu Bar ... -->
+<!-- START Main Area ... -->
+<section class="elem_top">
+  <h1>Create MyHMI/3GL</h1>
+</section>
+<br>
+<!--section class="elem_tos">
+  <figure>
+    <img alt=" " title=" " src="images/header.png" width=100%>
+  </figure>
+</section-->
+<section class="elem_lst">
+  <ul>
+    <li>
+      <h2>Create MyHMI/3GL</h2>
+      <figure>
+        <img alt="MyHMI/3GL" title="MyHMI/3GL" src="images/cam840.png">
+      </figure>
+      <p>
+        <b>Create MyHMI /3GL</b> can be used to create HMI extensions for the SINUMERIK 840D sl and SINUMERIK ONE or stand-alone user interfaces for SINUMERIK 840D sl, SINUMERIK ONE, and SINUMERIK MC.<br><br>
+        SINUMERIK Create MyHMI /3GL allows high-level language applications to be developed in the C++ programming language in conjunction with Qt for SINUMERIK Operate on SINUMERIK PCU 50.5, SIMATIC IPC427E or IPC477E, and on SINUMERIK NCU 7x0.<br><br>
+        Here are some small code samples used to monitor variables (using a dinamic graph) or to log alarms...<br><br>
+        <br><br>
+        <a href="http://github.com/alxcor/cam840">Code on GitHub...</a>
+      </p>
+    </li>
+    <li>
+      <h2>Identify target Sinumerik system</h2>
+      <figure>
+        <img alt="MyHMI/3GL" title="MyHMI/3GL" src="images/operate.png">
+      </figure>
+      <p>
+        The HMI (Human Machine Interface) on the Sinumerik system may be based on the native Linux system, running from the CF card of the NCU unit, or on a Windows system installed on a distinct PC unit, connected to the NC via network.<br><br>
+        In order to install a new app is neccessary to identify <b>the operating system</b> (Linux or Windows), <b>the computer</b> running the HMI interface (NCU or an external computer such as PCU [PC Unit] or IPC [Industrial PC]) and <b>the correct install path</b> of the HMI software.<br><br>
+        Go to Operating Area 'Setup' and select 'System data' menu...<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img alt="Menu Select" title="Menu Select" src="images/hk_menu.png">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img alt="Setup"       title="Setup"       src="images/sk_setup.png">
+        > > >
+        <img alt="System data" title="System data" src="images/sk_systemdata.png"><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...and check where the system data are located.<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If a 'System CF card' is present, SINUMERIK Operate runs under <b>Linux</b>   from <b>NCU unit</b>.<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If a 'System HDD'     is present, SINUMERIK Operate runs under <b>Windows</b> from a <b>PCU or IPC unit</b>.<br><br>
+        <img alt="TCU System" title="TCU System" src="images/system_tcu.png">&nbsp;&nbsp;
+        <img alt="PCU System" title="PCU System" src="images/system_pcu.png">
+        <br><br>
+        For a system running on Linux, from the CF Card of the NCU Unit, Sinumerik Operate path is:<br><b>/card/oem/sinumerik/hmi</b><br><br>
+        For a system running on Windows, from the HDD of the PCU or IPC Unit, Sinumerik Operate path should be identified from Windows settings.<br>
+        ... for a system running Windows XP the path may be:<br><b>F:/hmisl/oem/sinumerik/hmi</b><br>
+        ... while for a system running Windows7 or Windows10 the path may be:<br><b>C:/Program Files (x86)/Siemens/MotionControl/oem/sinumerik/hmi</b><br><br>
+      </p>
+    </li>
+    <li id="install">
+      <h2>Install MyHMI/3GL App on Sinumerik</h2>
+      <figure>
+        <img alt="Spare Parts" title="Spare Parts" src="images/cam840.png">
+      </figure>
+      <h3>Test MyHMI/3GL App on a Sinumerik Simulator...[optional]</h3>
+      <p>
+        It may be a good ideea to test the app before installing on a real Sinumerik system.<br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+        <a href="http://github.com/alxcor/cam840">Code on GitHub...</a>
+        <a href="http://github.com/alxcor/cam840">Download...</a>
+      </p>
+    </li>
+  </ul>
+</section>
+<!-- END Main Area ... -->
+<section class="footer">
+  alxcor@yahoo.com
+</section>
+</body></html>
