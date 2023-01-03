@@ -69,7 +69,7 @@
     .menu_lst li a:hover{ background-color: #404040;}
     /* Element principal tip 1 */
     .elem_top { background: url("images/header.png") center;
-      background-size: cover; padding: 0rem 2rem; padding-bottom: 4rem;
+      background-size: cover; padding: 0rem 2rem; padding-bottom: 10rem;
       display: grid; align-items: center;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));}
     .elem_top > * {color: white;}
@@ -84,7 +84,7 @@
       list-style-type: none; display: list-item; grid-gap: 1rem;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       padding: 0.2rem;}
-    .elem_lst > ul > li {border: 1px solid #90909F;}
+    .elem_lst > ul > li {border: 0px solid #90909F; border-bottom: 1px solid #90909F;}
     .elem_lst > ul > li > figure {
       height: 200px; overflow: hidden; margin:0.1rem;}
     .elem_lst > ul > li > figure > img {width: 100%;}
@@ -170,27 +170,27 @@
         SINUMERIK Create MyHMI /3GL allows high-level language applications to be developed in the C++ programming language in conjunction with Qt for SINUMERIK Operate on SINUMERIK PCU 50.5, SIMATIC IPC427E or IPC477E, and on SINUMERIK NCU 7x0.<br><br>
         Here are some small code samples used to monitor variables (using a dinamic graph) or to log alarms...<br><br>
         <br><br>
-        <a href="http://github.com/alxcor/cam840">Code on GitHub...</a>
+        <a href="https://support.industry.siemens.com/cs/document/109801224/sinumerik-840d-sl-sinumerik-integrate-run-myscreens?dti=0&lc=en-US" target="_blank">Create MyHMI/3GL Manual...</a>
       </p>
     </li>
-    <li>
+    <li id="identify">
       <h2>Identify target Sinumerik system</h2>
-      <figure>
+      <!--figure>
         <img alt="MyHMI/3GL" title="MyHMI/3GL" src="images/operate.png">
-      </figure>
+      </figure-->
       <p>
         The HMI (Human Machine Interface) on the Sinumerik system may be based on the native Linux system, running from the CF card of the NCU unit, or on a Windows system installed on a distinct PC unit, connected to the NC via network.<br><br>
         In order to install a new app is neccessary to identify <b>the operating system</b> (Linux or Windows), <b>the computer</b> running the HMI interface (NCU or an external computer such as PCU [PC Unit] or IPC [Industrial PC]) and <b>the correct install path</b> of the HMI software.<br><br>
-        Go to Operating Area 'Setup' and select 'System data' menu...<br>
+        The type of system may be identified on Operating Area 'Setup', 'System data' menu...<br><br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img alt="Menu Select" title="Menu Select" src="images/hk_menu.png">
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img alt="Setup"       title="Setup"       src="images/sk_setup.png">
         > > >
-        <img alt="System data" title="System data" src="images/sk_systemdata.png"><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...and check where the system data are located.<br>
+        <img alt="System data" title="System data" src="images/sk_systemdata.png"><br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...by checking where the system data are located.<br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If a 'System CF card' is present, SINUMERIK Operate runs under <b>Linux</b>   from <b>NCU unit</b>.<br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If a 'System HDD'     is present, SINUMERIK Operate runs under <b>Windows</b> from a <b>PCU or IPC unit</b>.<br><br>
-        <img alt="TCU System" title="TCU System" src="images/system_tcu.png">&nbsp;&nbsp;
-        <img alt="PCU System" title="PCU System" src="images/system_pcu.png">
+        <img alt="TCU System" title="TCU System" src="images/scr_sys_tcu.png">&nbsp;&nbsp;
+        <img alt="PCU System" title="PCU System" src="images/scr_sys_pcu.png">
         <br><br>
         For a system running on Linux, from the CF Card of the NCU Unit, Sinumerik Operate path is:<br><b>/card/oem/sinumerik/hmi</b><br><br>
         For a system running on Windows, from the HDD of the PCU or IPC Unit, Sinumerik Operate path should be identified from Windows settings.<br>
@@ -198,22 +198,44 @@
         ... while for a system running Windows7 or Windows10 the path may be:<br><b>C:/Program Files (x86)/Siemens/MotionControl/oem/sinumerik/hmi</b><br><br>
       </p>
     </li>
-    <li id="install">
-      <h2>Install MyHMI/3GL App on Sinumerik</h2>
-      <figure>
-        <img alt="Spare Parts" title="Spare Parts" src="images/cam840.png">
-      </figure>
+    <li id="version">
+      <h2>Identify version</h2>
+      <p>
+        The version of the MyHMI/3GL used in application should match the Sinumerik Operate version.<br><br>
+        The version of the HMI system (Sinumerik Operate) may be identified on Operating Area 'Diagnosis', 'Version' menu...<br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img alt="Menu Select" title="Menu Select" src="images/hk_menu.png">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img alt="Diagnosis"   title="Diagnosis"   src="images/sk_diagnosis.png">
+        > > >
+        <img alt="Version" title="Version" src="images/sk_diag_version.png"><br><br>
+        <img alt="Version" title="Version" src="images/scr_diag_version.png"><br><br>
+      </p>
+    </li>
+    <li id="download">
+      <h2>Download App</h2>
+      <p>
+        The app version must match the version of the target system, identified as above...<br><br>
+        <a href="http://github.com/alxcor/cam840">Download v2.6</a>
+        <a href="http://github.com/alxcor/cam840">Download v4.5</a>
+        <a href="http://github.com/alxcor/cam840">Download v4.7</a>
+        <a href="http://github.com/alxcor/cam840">Goto GitHub</a>
+      </p>
       <h3>Test MyHMI/3GL App on a Sinumerik Simulator...[optional]</h3>
       <p>
         It may be a good ideea to test the app before installing on a real Sinumerik system.<br><br>
-        <br><br>
-        <br><br>
-        <br><br>
-        <br><br>
-        <br><br>
-        <br><br>
-        <a href="http://github.com/alxcor/cam840">Code on GitHub...</a>
-        <a href="http://github.com/alxcor/cam840">Download...</a>
+        'Create MyHMI/3GL' Apps (compiled for Windows) may be tested on Sinutrain, a Sinumerik simulator.<br>
+        Starting with version 4.5, Sinutrain has also a Basic version (free use without license), available for download.<br><br>
+        <a href="http://www.siemens.com/sinutrain"  target="_blank">Goto Sinutrain webpage ...</a>
+        <a href="https://new.siemens.com/global/en/markets/machinebuilding/machine-tools/cnc4you/sinutrain-uebersicht.html" target="_blank">Alternate Sinutrain webpage</a>
+      </p>
+    </li>
+    <li id="install">
+      <h2>Install App</h2>
+      <p>
+        The app version must match the version of the target system, identified as above...<br><br>
+      </p>
+      <h3>Backup system before install</h3>
+      <p>
+        Bla Bla Bla...
       </p>
     </li>
   </ul>
