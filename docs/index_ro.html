@@ -188,8 +188,8 @@
         ...prin verificare locatiei datelor sistem.<br>
       </p>
       <p class="par1">
-        - If a 'System CF card' is present, SINUMERIK Operate runs under <b>Linux</b>   from <b>NCU unit</b>.<br>
-        - If a 'System HDD'     is present, SINUMERIK Operate runs under <b>Windows</b> from a <b>PCU or IPC unit</b>.<br><br>
+        - Daca este prezent 'System CF card', SINUMERIK Operate ruleaza sub <b>Linux</b>   de pe <b>unitatea NCU.</b>.<br>
+        - Daca este prezent 'System HDD'    , SINUMERIK Operate ruleaza sub <b>Windows</b> de pe <b>o unitate PCU sau IPC</b>.<br><br>
         <img alt="TCU System" title="TCU System" src="images/scr_sys_tcu.png">&nbsp;&nbsp;
         <img alt="PCU System" title="PCU System" src="images/scr_sys_pcu.png">
         <br><br>
@@ -279,9 +279,9 @@
       <p class="mono">
       <b>systemconfiguration.ini</b><br>
       [areas]<br>
-      AREA0500= name:=cam840, dialog:=cam840adialog, panel:=SlHdStdHeaderPanel<br>
+      AREA0547= name:=cam840, dialog:=cam840adialog, panel:=SlHdStdHeaderPanel<br>
       [dialogs]<br>
-      DLG0500= name:=cam840adialog, implementation:=slgfw.SlGfwHmiDialog, process:=SlHmiHost1, preload:=true, terminate:=false, cmdline:="-conf cam840adialog.hmi"<br>
+      DLG0547= name:=cam840adialog, implementation:=slgfw.SlGfwHmiDialog, process:=SlHmiHost1, preload:=true, terminate:=false, cmdline:="-conf cam840adialog.hmi"<br>
       </p>
       <h3>4.c If systemconfiguration.xml was found...</h3>
       <p>
@@ -295,9 +295,9 @@
       <p class="mono">
       <b>systemconfiguration.ini</b><br>
       [areas]<br>
-      AREA0500= name:=cam840, dialog:=cam840adialog, panel:=SlHdStdHeaderPanel<br>
+      AREA0547= name:=cam840, dialog:=cam840adialog, panel:=SlHdStdHeaderPanel<br>
       [dialogs]<br>
-      DLG0500= name:=cam840adialog, implementation:=slgfw.SlGfwHmiDialog, process:=SlHmiHost1, preload:=true, terminate:=false, cmdline:="-conf cam840adialog.hmi"<br>
+      DLG0547= name:=cam840adialog, implementation:=slgfw.SlGfwHmiDialog, process:=SlHmiHost1, preload:=true, terminate:=false, cmdline:="-conf cam840adialog.hmi"<br>
       </p>
       <h3>5.a Check slamconfig.ini (or slamconfig.xls) file (optional)</h3>
       <p>
