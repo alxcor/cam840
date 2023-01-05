@@ -227,53 +227,53 @@
         In concordanta cu versiunea sistemului Sinumerik real, o versiune similara Sinutrain poate fi descarcata si instalata.<br>
         Dupa lansarea soft-ului Sinutrain, trebuie creata o noua masina. Fara o licenta, pentru teste, poate fi utilizata una din masinile BASIC pentru a testa aplicatia scrisa sub MyHMI/3GL.
         O alta optiune este utilizarea unei licente Trial si crearea unei masini similare cu masina Sinumerik CNC reala.<br><br>
-        <a href="http://www.siemens.com/sinutrain"  target="_blank">Goto Sinutrain webpage ...</a>
-        <a href="https://new.siemens.com/global/en/markets/machinebuilding/machine-tools/cnc4you/sinutrain-uebersicht.html" target="_blank">Alternate Sinutrain webpage</a>
+        <a href="http://www.siemens.com/sinutrain"  target="_blank">pagina web Sinutrain...</a>
+        <a href="https://new.siemens.com/global/en/markets/machinebuilding/machine-tools/cnc4you/sinutrain-uebersicht.html" target="_blank">pag.web alternativa Sinutrain</a>
       </p>
     </li>
     <li id="install">
-      <h2>Install App</h2>
+      <h2>Instalare Aplicatie</h2>
       <p>
-        The app version must match the version of the target system, identified as above...<br><br>
+        Versiunea aplicatiei trebuie sa corespunda versiunii sistemului tinta, identificata ca mai sus ...<br><br>
       </p>
-      <h3>1. Backup system before install</h3>
-      <p>Backup the system according to OEM/Siemens manuals.</p>
-      <h3>2. Check Sinumerik Operate path on the target system</h3>
+      <h3>1. Backup al sistemului inainte de instalare</h3>
+      <p>Inainte de instalare trebuie efectuata o salvare a datelor (backup) conform manualelor fabricantului (OEM) sau Siemens.</p>
+      <h3>2. Verificare cale Sinumerik Operate pe sistemul tinta</h3>
       <p>
-        For a system running on Linux, from the CF Card of the NCU Unit, Sinumerik Operate path is:<br><b>/card/oem/sinumerik/hmi</b><br><br>
-        For a system running on Windows, from the HDD of the PCU or IPC Unit, Sinumerik Operate path should be identified from Windows settings.<br>
-        ... for a system running Windows XP the path may be:<br><b>F:/hmisl/oem/sinumerik/hmi</b><br>
-        ... while for a system running Windows7 or Windows10 the path may be:<br><b>C:/Program Files (x86)/Siemens/MotionControl/oem/sinumerik/hmi</b><br><br>
-        For a simulated system running in Sinutrain the path may be:<br><b>C:/Siemens/Sinutrain/SINUMERIK CNC-SW 840D sl </b><i><u>'version'</u></i><b> /hmi/oem/sinumerik/hmi</b><br>
-        [the path is available only after a machine is started]<br>
+        Pentru un sistem ce ruleaza sub Linux,   de pe cardul CF al unitatii NCU, calea Sinumerik Operate este:<br><b>/card/oem/sinumerik/hmi</b><br><br>
+        Pentru un sistem ce ruleaza sub Windows, de pe hard-discul (HDD/SSD) al unitatii PCU sau IPC, calea Sinumerik Operate trebuie identificata din setarile Windows.<br>
+        ... pentru un sistem ce ruleaza Windows XP calea implicita este:<br><b>F:/hmisl/oem/sinumerik/hmi</b><br>
+        ... pentru un sistem ce ruleaza Windows7 sau Windows10 calea implicita este:<br><b>C:/Program Files (x86)/Siemens/MotionControl/oem/sinumerik/hmi</b><br><br>
+        Pentru un sistem simulat ce ruleaza sub Sinutrain calea implicita este:<br><b>C:/Siemens/Sinutrain/SINUMERIK CNC-SW 840D sl </b><i><u>'versiune'</u></i><b> /hmi/oem/sinumerik/hmi</b><br>
+        [calea este disponibila doar daca masina simulata in Sinutrain a fost pornita]<br>
       </p>
-      <h3>3. Copy app files in 'appl' folder</h3>
+      <h3>3. Copiere fisiere aplicatie in directorul 'appl'</h3>
       <p>
-        Go to Operating Area 'Setup', 'System data' menu...<br><br>
+        Directorul poate fi accesat din Sinumerik Operate in Aria de Operare 'Setup', meniul 'System data' ...<br><br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img alt="Menu Select" title="Menu Select" src="images/hk_menu.png">
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img alt="Setup"       title="Setup"       src="images/sk_setup.png">
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img alt="System data" title="System data" src="images/sk_systemdata.png"><br><br>
-        Go to <b>HMI data / Applications / Manufacturer</b><br><br>
+        In directorul <b>HMI data / Applications / Manufacturer</b><br><br>
         <img alt="Settings" title="Settings" src="images/scr_applications.png"><br><br>
-        The content of the 'appl' folder [files: cam840a.dll, libcam840a.so and cam840adialog.hmi] from the application archive should be copied here.<br><br>
-        On the file system, this folder is located at 'Sinumerik Operate path'/appl (e.g. /card/oem/sinumerik/hmi/appl for a Linux system)<br><br>
+        Continutul folderului 'appl' [fisierele: cam840a.dll, libcam840a.so si cam840adialog.hmi] din arhiva aplicatiei trebuie sa fie copiat aici.<br><br>
+        Pe card/HDD/SSD acest director este localizat in 'cale Sinumerik Operate'/appl (de ex. /card/oem/sinumerik/hmi/appl pentru un sistem Linux)<br><br>
       </p>
-      <h3>4.a Check systemconfiguration.ini (or systemconfiguration.xls) file</h3>
+      <h3>4.a Verificare fisiere systemconfiguration.ini (sau systemconfiguration.xls)</h3>
       <p>
-        Go to Operating Area 'Setup', 'System data' menu...<br><br>
+        Aria de Operare 'Setup', meniu 'System data' ...<br><br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img alt="Menu Select" title="Menu Select" src="images/hk_menu.png">
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img alt="Setup"       title="Setup"       src="images/sk_setup.png">
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img alt="System data" title="System data" src="images/sk_systemdata.png"><br><br>
-        Go to <b>HMI data / Settings</b> and check in <b>'Manufacturer'</b> and <b>'User'</b> folders the presence of a file named <b>'systemconfiguration.ini'</b> or <b>'systemconfiguration.xml'</b><br><br>
+        Mai intai trebuie verificata prezenta in <b>HMI data / Settings</b>, fie in directorul <b>'Manufacturer'</b> fie in directorul <b>'User'</b>, a unui fisier numit <b>'systemconfiguration.ini'</b> sau <b>'systemconfiguration.xml'</b><br><br>
         <img alt="Settings" title="Settings" src="images/scr_settings.png"><br><br>
-        If 'systemconfiguration.ini' file exists in 'Manufacturer' or 'User' folder, open the file in editor and search for the section <b>[areas]</b><br>
-        In section [areas] check for AREA0547. If is not used it can be used for our application. If it is check for a free area (between AREA0500 and AREA0599).<br><br>
-        If 'systemconfiguration.xml' file exists in 'Manufacturer' or 'User' folder, open the file in editor and search for the section <b>&#60;areas&#62;</b><br>
-        In section &#60;areas&#62; check for AREA0547. If is not used it can be used for our application. If it is check for a free area (between AREA0500 and AREA0599).<br><br>
-      <h3>4.b If systemconfiguration.ini was found, update the file</h3>
-        Add in section [areas] the following line: <i>(use a free number if AREA0547 is used)</i><br>
+        Daca fisierul 'systemconfiguration.ini' exista in unul din directoarele 'Manufacturer' sau 'User', acest fisier trebuie deschis in editor si apoi trebuie cautata sectiunea <b>[areas]</b><br>
+        In sectiunea [areas] trebuie verificat daca este utilizata deja AREA0547. Daca nu este utilizata, aceasta poate fi folosita pentru instalarea aplicatiei. Daca este deja utilizata trebuie cautat un numar liber (aflat intre AREA0500 si AREA0599).<br><br>
+        Daca fisierul 'systemconfiguration.xml' exista in unul din directoarele 'Manufacturer' sau 'User', acest fisier trebuie deschis in editor si apoi trebuie cautata sectiunea <b>&#60;areas&#62;</b><br>
+        In sectiunea &#60;areas&#62; trebuie verificat daca este utilizata deja AREA0547. Daca nu este utilizata, aceasta poate fi folosita pentru instalarea aplicatiei. Daca este deja utilizata trebuie cautat un numar liber (aflat intre AREA0500 si AREA0599).<br><br>
+      <h3>4.b Daca a fost gasit systemconfiguration.ini: actualizare fisier</h3>
+        In sectiunea [areas] va fi adaugata linia: <i>(daca AREA0547 este deja utilizata va trebui folosit un numar liber)</i><br>
         AREA0547= name:=cam840, dialog:=cam840adialog, panel:=SlHdStdHeaderPanel <br><br>
-        Add in section [dialogs] the following line: <i>(use the same number as for AREA)</i><br>
+        In sectiunea [dialogs] va fi adaugata linia: <i>(trebuie folosit acelasi numar ca pentru AREA)</i><br>
         DLG0547= name:=cam840adialog, implementation:=slgfw.SlGfwHmiDialog, process:=SlHmiHost1, preload:=true, terminate:=false, cmdline:="-conf cam840adialog.hmi"<br>
       </p>
       <p class="mono">
@@ -283,14 +283,14 @@
       [dialogs]<br>
       DLG0547= name:=cam840adialog, implementation:=slgfw.SlGfwHmiDialog, process:=SlHmiHost1, preload:=true, terminate:=false, cmdline:="-conf cam840adialog.hmi"<br>
       </p>
-      <h3>4.c If systemconfiguration.xml was found...</h3>
+      <h3>4.c Daca a fost gasit systemconfiguration.xml ...</h3>
       <p>
-      Check for AREA0547 in file. If is not used it can be used for our application. If it is check for a free area (between AREA0500 and AREA0599)<br>
-      Use this area to create a new systemconfiguration.ini file as explained at 4.d<br>
+      Daca AREA0547 nu a fost utilizata in fisier atunci poate fi utilizata pentru noua aplicatie. Daca a fost deja utilizata trebuie cautata o alta arie libera (intre AREA0500 si AREA0599)<br>
+      Aceasta arie poate fi utilizata intr-un fisier systemconfiguration.ini ca la 4.d<br>
       </p>
-      <h3>4.d If neither systemconfiguration.ini or systemconfiguration.xml were found...</h3>
+      <h3>4.d Daca nu au fost gasite nici systemconfiguration.ini nici systemconfiguration.xml ...</h3>
       <p>
-      Create a new systemconfiguration.ini in Manufacturer folder:<br>
+      In directorul Manufacturer va fi creat un fisier nou numit systemconfiguration.ini:<br>
       </p>
       <p class="mono">
       <b>systemconfiguration.ini</b><br>
@@ -299,17 +299,17 @@
       [dialogs]<br>
       DLG0547= name:=cam840adialog, implementation:=slgfw.SlGfwHmiDialog, process:=SlHmiHost1, preload:=true, terminate:=false, cmdline:="-conf cam840adialog.hmi"<br>
       </p>
-      <h3>5.a Check slamconfig.ini (or slamconfig.xls) file (optional)</h3>
+      <h3>5.a Verificare fisier slamconfig.ini (sau slamconfig.xls) (optional)</h3>
       <p>
-        Go to Operating Area 'Setup', 'System data' menu and create a new slamconfig.ini file (or update if already exists).
+        In Aria de Operare 'Setup', meniul 'System data' va fi creat un fisier nou slamconfig.ini (sau actualizat daca deja exista).
       </p>
       <p class="mono">
       <b>slamconfig.ini</b><br>
         [cam840]<br>
         Visible=True<br>
-        TextId=Cam840&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;a text to be display on the softkey<br>
-        Picture=logo_tasta.png&nbsp;&nbsp;&nbsp;&nbsp;;a logo, saved in ico folder, to be display on the softkey<br>
-        SoftkeyPosition=7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;position of the key in menu<br>
+        TextId=Cam840&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;text de afisat pe tasta soft<br>
+        Picture=logo_tasta.png&nbsp;&nbsp;&nbsp;&nbsp;;logo, salvat in directorul ico, de afisat pe tasta soft<br>
+        SoftkeyPosition=7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;pozitia tastei soft in meniu<br>
       </p>
       
     </li>
