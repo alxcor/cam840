@@ -7,6 +7,7 @@
   <style>
     /* Setari generale: chenar, fonturi, etc. */
     * { box-sizing: border-box;}
+    body {color: #000000; background-color: #FFFFFF;}
     body {font-family: Arial, sans-serif; font-size: 100%;}
     h1 {font-family: Garamond, serif; font-size: 2.500rem;}
     h2 {font-family: Garamond, serif; font-size: 1.875rem;}
@@ -14,18 +15,18 @@
     table {border-collapse: collapse;width: 100%;}
     th {border: 1px solid #004080;}
     td {border: 1px solid #004080;}
-    tr:nth-child(odd) {background-color: rgba(120, 120, 170, 0.4);
-}    /* Logo: data/versiune; titlu; subtitlu */
+    tr:nth-child(odd) {background-color: rgba(120, 120, 170, 0.4);}
+    /* Logo: data/versiune; titlu; subtitlu */
     .logo1p {
       margin-top: 5px; margin-left: 15px; margin-right: 10px;
       font-family: Arial; font-size: 0.8rem; line-height: 10px;
-      text-align: right; color: #004080; }
+      text-align: right; color: #90909F; }
     .logo2p { 
       margin-top: 10px; margin-left: 15px; margin-right: 10px;
       font-family: Arial; font-size: 3rem; line-height: 50px;
       text-align: left; color: #303050; }
     .logo3p {
-      margin-top: -20px; margin-left: 180px; margin-right: 10px;
+      margin-top: -20px; margin-left: 100px; margin-right: 10px;
       font-family: Arial; font-size: 2.5rem; line-height: 35px;
       text-align: left; color: #90909F; }
     /* Bara meniu orizontal: setari fundal */
@@ -103,6 +104,7 @@
       text-align: center; display: inline-block;}
     .mono {font-family: monospace; margin-left: 20px;}
     .par1 {margin-left: 20px;}
+    .maxp {max-width: 100%;}
     .footer {
       background-color: #606060; color: white; padding: .25rem;
       text-align: right; font-size: .5rem;}
@@ -123,10 +125,16 @@
         padding: 0.5rem 0; width: 100%; color: white;
         background-color: #10102F;}
     }
+    @media (prefers-color-scheme: light) {
+      body {color: #000000; background-color: #FFFFFF;}
+    }
+    @media (prefers-color-scheme: dark) {
+      body {color: #FFFFFF; background-color: #000000;}
+    }
   </style>
 </head>
 <!-- START BODY ... -->
-<body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+<body>
   <!-- START Header Area ... -->
   <a name="#top"> </a>
   <div class="logo1p" align="center">v22.12.16; Dec.2022</div>
@@ -154,11 +162,6 @@
   <h1>Create MyHMI/3GL</h1>
 </section>
 <br>
-<!--section class="elem_tos">
-  <figure>
-    <img alt=" " title=" " src="images/header.png" width=100%>
-  </figure>
-</section-->
 <section class="elem_lst">
   <ul>
     <li>
@@ -175,9 +178,6 @@
     </li>
     <li id="identify">
       <h2>Identify target Sinumerik system</h2>
-      <!--figure>
-        <img alt="MyHMI/3GL" title="MyHMI/3GL" src="images/operate.png">
-      </figure-->
       <p>
         The HMI (Human Machine Interface) on the Sinumerik system may be based on the native Linux system, running from the CF card of the NCU unit, or on a Windows system installed on a distinct PC unit, connected to the NC via network.<br><br>
         In order to install a new app is neccessary to identify <b>the operating system</b> (Linux or Windows), <b>the computer</b> running the HMI interface (NCU or an external computer such as PCU [PC Unit] or IPC [Industrial PC]) and <b>the correct install path</b> of the HMI software.<br><br>
@@ -190,8 +190,8 @@
       <p class="par1">
         - If a 'System CF card' is present, SINUMERIK Operate runs under <b>Linux</b>   from <b>NCU unit</b>.<br>
         - If a 'System HDD'     is present, SINUMERIK Operate runs under <b>Windows</b> from a <b>PCU or IPC unit</b>.<br><br>
-        <img alt="TCU System" title="TCU System" src="images/scr_sys_tcu.png">&nbsp;&nbsp;
-        <img alt="PCU System" title="PCU System" src="images/scr_sys_pcu.png">
+        <img class="maxp" alt="TCU System" title="TCU System" src="images/scr_sys_tcu.png">&nbsp;&nbsp;
+        <img class="maxp" alt="PCU System" title="PCU System" src="images/scr_sys_pcu.png">
         <br><br>
         For a system running on Linux, from the CF Card of the NCU Unit, Sinumerik Operate path is:<br><b>/card/oem/sinumerik/hmi</b><br><br>
         For a system running on Windows, from the HDD of the PCU or IPC Unit, Sinumerik Operate path should be identified from Windows settings:<br>
@@ -207,7 +207,7 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img alt="Menu Select" title="Menu Select" src="images/hk_menu.png">
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img alt="Diagnosis"   title="Diagnosis"   src="images/sk_diagnosis.png">
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img alt="Version" title="Version" src="images/sk_diag_version.png"><br><br>
-        <img alt="Version" title="Version" src="images/scr_diag_version.png"><br><br>
+        <img class="maxp" alt="Version" title="Version" src="images/scr_diag_version.png"><br><br>
       </p>
     </li>
     <li id="download">
@@ -254,7 +254,7 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img alt="Setup"       title="Setup"       src="images/sk_setup.png">
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img alt="System data" title="System data" src="images/sk_systemdata.png"><br><br>
         Go to <b>HMI data / Applications / Manufacturer</b><br><br>
-        <img alt="Settings" title="Settings" src="images/scr_applications.png"><br><br>
+        <img class="maxp" alt="Settings" title="Settings" src="images/scr_applications.png"><br><br>
         The content of the 'appl' folder [files: cam840a.dll, libcam840a.so and cam840adialog.hmi] from the application archive should be copied here.<br><br>
         On the file system, this folder is located at 'Sinumerik Operate path'/appl (e.g. /card/oem/sinumerik/hmi/appl for a Linux system)<br><br>
       </p>
@@ -265,7 +265,7 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img alt="Setup"       title="Setup"       src="images/sk_setup.png">
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img alt="System data" title="System data" src="images/sk_systemdata.png"><br><br>
         Go to <b>HMI data / Settings</b> and check in <b>'Manufacturer'</b> and <b>'User'</b> folders the presence of a file named <b>'systemconfiguration.ini'</b> or <b>'systemconfiguration.xml'</b><br><br>
-        <img alt="Settings" title="Settings" src="images/scr_settings.png"><br><br>
+        <img class="maxp" alt="Settings" title="Settings" src="images/scr_settings.png"><br><br>
         If 'systemconfiguration.ini' file exists in 'Manufacturer' or 'User' folder, open the file in editor and search for the section <b>[areas]</b><br>
         In section [areas] check for AREA0547. If is not used it can be used for our application. If it is check for a free area (between AREA0500 and AREA0599).<br><br>
         If 'systemconfiguration.xml' file exists in 'Manufacturer' or 'User' folder, open the file in editor and search for the section <b>&#60;areas&#62;</b><br>
