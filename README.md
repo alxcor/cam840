@@ -1,5 +1,5 @@
 # cam840
-Some small code samples used to monitor variables (using a dinamic graph) or to log alarms using Create MyHMI /3GL for SINUMERIK
+Some small code samples used to monitor variables (using a dynamic graph) or to log alarms using Create MyHMI /3GL for SINUMERIK
 
 ![header](/docs/images/header.png)
 
@@ -11,7 +11,7 @@ web page:  [alxcor.github.io/cam840](https://alxcor.github.io/cam840).
 
 SINUMERIK Create MyHMI /3GL allows high-level language applications to be developed in the C++ programming language in conjunction with Qt for SINUMERIK Operate on SINUMERIK PCU 50.5, SIMATIC IPC427E or IPC477E, and on SINUMERIK NCU 7x0.
 
-Here are some small code samples used to monitor variables (using a dinamic graph) or to log alarms...
+Here are some small code samples used to monitor variables (using a dynamic graph) or to log alarms...
 web page:  [Create MyHMI/3GL Manual...](https://support.industry.siemens.com/cs/document/109783268/sinumerik-840d-sl-sinumerik-integrate-create-myhmi-3gl-?dti=0&lc=en-US).
 
 ## Identify target Sinumerik system
@@ -40,6 +40,7 @@ For a system running on Windows, from the HDD of the PCU or IPC Unit, Sinumerik 
 
 ... for a system running Windows XP the path may be:
 
+<b>F:/hmisl/oem/sinumerik/hmi</b>
 <b>F:/hmisl/oem/sinumerik/hmi</b>
 
 ... while for a system running Windows7 or Windows10 the path may be: <b>C:/Program Files (x86)/Siemens/MotionControl /oem/sinumerik/hmi</b>
