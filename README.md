@@ -18,7 +18,7 @@ web page:  [Create MyHMI/3GL Manual...](https://support.industry.siemens.com/cs/
 
 The HMI (Human Machine Interface) on the Sinumerik system may be based on the native Linux system, running from the CF card of the NCU unit, or on a Windows system installed on a distinct PC unit, connected to the NC via network.
 
-In order to install a new app is neccessary to identify <b>the operating system</b> (Linux or Windows), <b>the computer</b> running the HMI interface (NCU or an external computer such as PCU [PC Unit] or IPC [Industrial PC]) and <b>the correct install path</b> of the HMI software.
+In order to install a new app is necessary to identify <b>the operating system</b> (Linux or Windows), <b>the computer</b> running the HMI interface (NCU or an external computer such as PCU [PC Unit] or IPC [Industrial PC]) and <b>the correct install path</b> of the HMI software.
 
 The type of system may be identified on Operating Area 'Setup', 'System data' menu...
 
