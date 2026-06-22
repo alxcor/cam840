@@ -1,0 +1,297 @@
+<!DOCTYPE HMI_DIALOG_CONFIGURATION>
+<DIALOGUI defaultscreen="Screen1" screenlayout="slstandardscreenlayout.SlStandardScreenLayout" panellayout="StandardLayout">
+  <SCREEN name="Screen1">
+    <FORM implementation="cam840a.cam840aform" name="cam840aform" formpanel="FullForm" zoom="true"/>
+    <MENU name="vr" softkeybar="vr">
+      <SOFTKEY position="5">
+        <PROPERTY name="text" type="QString">Monitor</PROPERTY>
+        <FUNCTION name="mod_screenchart" args="" />
+      </SOFTKEY>
+      <SOFTKEY position="6">
+        <PROPERTY name="text" type="QString">Zoom</PROPERTY>
+        <FUNCTION name="mod_screenzoom" args="" />
+      </SOFTKEY>
+      <SOFTKEY position="7">
+        <PROPERTY name="text" type="QString">Compr.</PROPERTY>
+        <FUNCTION name="mod_screencompr" args="" />
+      </SOFTKEY>
+      <SOFTKEY position="8">
+        <PROPERTY name="text" type="QString">Sett.</PROPERTY>
+        <FUNCTION name="mod_screensett" args="" />
+      </SOFTKEY>
+    </MENU>
+    <MENU name="hu" softkeybar="hu">
+      <SOFTKEY position="1">
+        <PROPERTY name="text" type="QString">Sinoptic</PROPERTY>
+        <FUNCTION name="mod_ecran1" args="" />
+        <NAVIGATION target="screen">
+          <SCREEN name="Screen1" />
+        </NAVIGATION>
+      </SOFTKEY>
+      <SOFTKEY position="2">
+        <PROPERTY name="text" type="QString">Monitor</PROPERTY>
+        <FUNCTION name="mod_ecran2" args="" />
+        <NAVIGATION target="screen">
+          <SCREEN name="Screen2" />
+        </NAVIGATION>
+      </SOFTKEY>
+      <SOFTKEY position="3">
+        <PROPERTY name="text" type="QString">Chart</PROPERTY>
+        <FUNCTION name="mod_ecran3" args="" />
+        <NAVIGATION target="screen">
+          <SCREEN name="Screen3" />
+        </NAVIGATION>
+      </SOFTKEY>
+      <SOFTKEY position="4">
+        <PROPERTY name="text" type="QString">Alarms</PROPERTY>
+        <FUNCTION name="mod_ecran4" args="" />
+        <NAVIGATION target="screen">
+          <SCREEN name="Screen4" />
+        </NAVIGATION>
+      </SOFTKEY>
+      <SOFTKEY position="8">
+        <PROPERTY name="text" type="QString">Settings</PROPERTY>
+        <FUNCTION name="mod_ecran8" args="" />
+        <NAVIGATION target="screen">
+          <SCREEN name="Screen8" />
+        </NAVIGATION>
+      </SOFTKEY>
+    </MENU>
+  </SCREEN>
+  <SCREEN name="Screen2">
+    <FORM implementation="cam840a.cam840aform" name="cam840aform" formpanel="FullForm" zoom="true"/>
+    <MENU name="vr" softkeybar="vr">
+      <SOFTKEY position="1">
+        <PROPERTY name="text" type="QString">Start Rec.</PROPERTY>
+        <FUNCTION name="mod_monstartrec" args="" />
+      </SOFTKEY>
+      <SOFTKEY position="2">
+        <PROPERTY name="text" type="QString">Stop Rec.</PROPERTY>
+        <FUNCTION name="mod_monstoprec" args="" />
+      </SOFTKEY>
+      <SOFTKEY position="3">
+        <PROPERTY name="text" type="QString">Start</PROPERTY>
+        <FUNCTION name="mod_monstart" args="" />
+      </SOFTKEY>
+      <SOFTKEY position="4">
+        <PROPERTY name="text" type="QString">Stop</PROPERTY>
+        <FUNCTION name="mod_monstop" args="" />
+      </SOFTKEY>
+      <SOFTKEY position="8">
+        <PROPERTY name="text" type="QString">Sett.</PROPERTY>
+        <FUNCTION name="mod_monsett" args="" />
+      </SOFTKEY>
+    </MENU>
+    <MENU name="hu" softkeybar="hu">
+      <SOFTKEY position="1">
+        <PROPERTY name="text" type="QString">Sinoptic</PROPERTY>
+        <FUNCTION name="mod_ecran1" args="" />
+        <NAVIGATION target="screen">
+          <SCREEN name="Screen1" />
+        </NAVIGATION>
+      </SOFTKEY>
+      <SOFTKEY position="2">
+        <PROPERTY name="text" type="QString">Monitor</PROPERTY>
+        <FUNCTION name="mod_ecran2" args="" />
+        <NAVIGATION target="screen">
+          <SCREEN name="Screen2" />
+        </NAVIGATION>
+      </SOFTKEY>
+      <SOFTKEY position="3">
+        <PROPERTY name="text" type="QString">Chart</PROPERTY>
+        <FUNCTION name="mod_ecran3" args="" />
+        <NAVIGATION target="screen">
+          <SCREEN name="Screen3" />
+        </NAVIGATION>
+      </SOFTKEY>
+      <SOFTKEY position="4">
+        <PROPERTY name="text" type="QString">Alarms</PROPERTY>
+        <FUNCTION name="mod_ecran4" args="" />
+        <NAVIGATION target="screen">
+          <SCREEN name="Screen4" />
+        </NAVIGATION>
+      </SOFTKEY>
+      <SOFTKEY position="8">
+        <PROPERTY name="text" type="QString">Settings</PROPERTY>
+        <FUNCTION name="mod_ecran8" args="" />
+        <NAVIGATION target="screen">
+          <SCREEN name="Screen8" />
+        </NAVIGATION>
+      </SOFTKEY>
+    </MENU>
+  </SCREEN>
+  <SCREEN name="Screen3">
+    <FORM implementation="cam840a.cam840aform" name="cam840aform" formpanel="FullForm" zoom="true"/>
+    <MENU name="vr" softkeybar="vr">
+      <SOFTKEY position="1">
+        <PROPERTY name="text" type="QString">Start</PROPERTY>
+        <FUNCTION name="mod_chartstart" args="" />
+      </SOFTKEY>
+      <SOFTKEY position="2">
+        <PROPERTY name="text" type="QString">Stop</PROPERTY>
+        <FUNCTION name="mod_chartstop" args="" />
+      </SOFTKEY>
+      <SOFTKEY position="3">
+        <PROPERTY name="text" type="QString">Read Man.</PROPERTY>
+        <FUNCTION name="mod_chartread" args="" />
+      </SOFTKEY>
+      <SOFTKEY position="8">
+        <PROPERTY name="text" type="QString">Sett.</PROPERTY>
+        <FUNCTION name="mod_chartsett" args="" />
+      </SOFTKEY>
+    </MENU>
+    <MENU name="hu" softkeybar="hu">
+      <SOFTKEY position="1">
+        <PROPERTY name="text" type="QString">Sinoptic</PROPERTY>
+        <FUNCTION name="mod_ecran1" args="" />
+        <NAVIGATION target="screen">
+          <SCREEN name="Screen1" />
+        </NAVIGATION>
+      </SOFTKEY>
+      <SOFTKEY position="2">
+        <PROPERTY name="text" type="QString">Monitor</PROPERTY>
+        <FUNCTION name="mod_ecran2" args="" />
+        <NAVIGATION target="screen">
+          <SCREEN name="Screen2" />
+        </NAVIGATION>
+      </SOFTKEY>
+      <SOFTKEY position="3">
+        <PROPERTY name="text" type="QString">Chart</PROPERTY>
+        <FUNCTION name="mod_ecran3" args="" />
+        <NAVIGATION target="screen">
+          <SCREEN name="Screen3" />
+        </NAVIGATION>
+      </SOFTKEY>
+      <SOFTKEY position="4">
+        <PROPERTY name="text" type="QString">Alarms</PROPERTY>
+        <FUNCTION name="mod_ecran4" args="" />
+        <NAVIGATION target="screen">
+          <SCREEN name="Screen4" />
+        </NAVIGATION>
+      </SOFTKEY>
+      <SOFTKEY position="8">
+        <PROPERTY name="text" type="QString">Settings</PROPERTY>
+        <FUNCTION name="mod_ecran8" args="" />
+        <NAVIGATION target="screen">
+          <SCREEN name="Screen8" />
+        </NAVIGATION>
+      </SOFTKEY>
+    </MENU>
+  </SCREEN>
+  <SCREEN name="Screen4">
+    <FORM implementation="cam840a.cam840aform" name="cam840aform" formpanel="FullForm" zoom="true"/>
+    <MENU name="vr" softkeybar="vr">
+      <SOFTKEY position="1">
+        <PROPERTY name="text" type="QString">Start</PROPERTY>
+        <FUNCTION name="mod_almlogstart" args="" />
+      </SOFTKEY>
+      <SOFTKEY position="2">
+        <PROPERTY name="text" type="QString">Stop</PROPERTY>
+        <FUNCTION name="mod_almlogstop" args="" />
+      </SOFTKEY>
+      <SOFTKEY position="3">
+        <PROPERTY name="text" type="QString">Clear</PROPERTY>
+        <FUNCTION name="mod_almlogclear" args="" />
+      </SOFTKEY>
+      <SOFTKEY position="4">
+        <PROPERTY name="text" type="QString">Save</PROPERTY>
+        <FUNCTION name="mod_almlogsave" args="" />
+      </SOFTKEY>
+      <SOFTKEY position="8">
+        <PROPERTY name="text" type="QString">Sett.</PROPERTY>
+        <FUNCTION name="mod_almlogsett" args="" />
+      </SOFTKEY>
+    </MENU>
+    <MENU name="hu" softkeybar="hu">
+      <SOFTKEY position="1">
+        <PROPERTY name="text" type="QString">Sinoptic</PROPERTY>
+        <FUNCTION name="mod_ecran1" args="" />
+        <NAVIGATION target="screen">
+          <SCREEN name="Screen1" />
+        </NAVIGATION>
+      </SOFTKEY>
+      <SOFTKEY position="2">
+        <PROPERTY name="text" type="QString">Monitor</PROPERTY>
+        <FUNCTION name="mod_ecran2" args="" />
+        <NAVIGATION target="screen">
+          <SCREEN name="Screen2" />
+        </NAVIGATION>
+      </SOFTKEY>
+      <SOFTKEY position="3">
+        <PROPERTY name="text" type="QString">Chart</PROPERTY>
+        <FUNCTION name="mod_ecran3" args="" />
+        <NAVIGATION target="screen">
+          <SCREEN name="Screen3" />
+        </NAVIGATION>
+      </SOFTKEY>
+      <SOFTKEY position="4">
+        <PROPERTY name="text" type="QString">Alarms</PROPERTY>
+        <FUNCTION name="mod_ecran4" args="" />
+        <NAVIGATION target="screen">
+          <SCREEN name="Screen4" />
+        </NAVIGATION>
+      </SOFTKEY>
+      <SOFTKEY position="8">
+        <PROPERTY name="text" type="QString">Settings</PROPERTY>
+        <FUNCTION name="mod_ecran8" args="" />
+        <NAVIGATION target="screen">
+          <SCREEN name="Screen8" />
+        </NAVIGATION>
+      </SOFTKEY>
+    </MENU>
+  </SCREEN>
+  <SCREEN name="Screen8">
+    <FORM implementation="cam840a.cam840aform" name="cam840aform" formpanel="FullForm" zoom="true"/>
+    <MENU name="vr" softkeybar="vr">
+      <SOFTKEY position="1">
+        <PROPERTY name="text" type="QString">Read Ini</PROPERTY>
+        <FUNCTION name="mod_readini" args="" />
+      </SOFTKEY>
+      <SOFTKEY position="2">
+        <PROPERTY name="text" type="QString">Save Ini</PROPERTY>
+        <FUNCTION name="mod_saveini" args="" />
+      </SOFTKEY>
+      <SOFTKEY position="8">
+        <PROPERTY name="text" type="QString">Reconnect</PROPERTY>
+        <FUNCTION name="mod_reconnect" args="" />
+      </SOFTKEY>
+    </MENU>
+    <MENU name="hu" softkeybar="hu">
+      <SOFTKEY position="1">
+        <PROPERTY name="text" type="QString">Sinoptic</PROPERTY>
+        <FUNCTION name="mod_ecran1" args="" />
+        <NAVIGATION target="screen">
+          <SCREEN name="Screen1" />
+        </NAVIGATION>
+      </SOFTKEY>
+      <SOFTKEY position="2">
+        <PROPERTY name="text" type="QString">Monitor</PROPERTY>
+        <FUNCTION name="mod_ecran2" args="" />
+        <NAVIGATION target="screen">
+          <SCREEN name="Screen2" />
+        </NAVIGATION>
+      </SOFTKEY>
+      <SOFTKEY position="3">
+        <PROPERTY name="text" type="QString">Chart</PROPERTY>
+        <FUNCTION name="mod_ecran3" args="" />
+        <NAVIGATION target="screen">
+          <SCREEN name="Screen3" />
+        </NAVIGATION>
+      </SOFTKEY>
+      <SOFTKEY position="4">
+        <PROPERTY name="text" type="QString">Alarms</PROPERTY>
+        <FUNCTION name="mod_ecran4" args="" />
+        <NAVIGATION target="screen">
+          <SCREEN name="Screen4" />
+        </NAVIGATION>
+      </SOFTKEY>
+      <SOFTKEY position="8">
+        <PROPERTY name="text" type="QString">Settings</PROPERTY>
+        <FUNCTION name="mod_ecran8" args="" />
+        <NAVIGATION target="screen">
+          <SCREEN name="Screen8" />
+        </NAVIGATION>
+      </SOFTKEY>
+    </MENU>
+  </SCREEN>
+</DIALOGUI>
