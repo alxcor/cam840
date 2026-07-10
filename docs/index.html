@@ -224,6 +224,7 @@
     }
     .btn-group {
         display: flex;
+        flex-wrap: wrap;
         gap: 10px;
         margin-top: 1rem;
     }
@@ -254,7 +255,7 @@
     .feature-list {
         list-style-type: none;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
         gap: 1rem;
         margin-top: 1rem;
     }
@@ -338,6 +339,9 @@
         <div class="divider"></div>
         <div class="toolbar-group">
             <button id="nav_gototop">Top</button>
+        </div>
+        <div class="divider"></div>
+        <div class="toolbar-group">
             <button id="nav_identify">Identify</button>
             <button id="nav_download">Download</button>
             <button id="nav_install">Install</button>
@@ -345,7 +349,7 @@
     </nav>
     <section class="hero-banner">
         <div class="hero-text-box">
-            <h1>Create MyHMI/3GL</h1>
+            <h1>Create MyHMI /3GL</h1>
         </div>
     </section>
     <main class="main-content">
@@ -453,7 +457,7 @@
             </div>
             <p>The content of the 'appl' folder [files: cam840a.dll, libcam840a.so and cam840adialog.hmi] from the application archive should be copied here.</p>
             <p>On the file system, this folder is located at 'Sinumerik Operate path'/appl (e.g. <code>/card/oem/sinumerik/hmi/appl</code> for a Linux system)</p>
-            <h3>4.a Check systemconfiguration.ini (or systemconfiguration.xml) file</h3>
+            <h3>4.a Check systemconfiguration .ini (or systemconfiguration .xml) file</h3>
             <p>Go to Operating Area 'Setup', 'System data' menu...</p>
             <div class="help-section">
                 <img alt="Menu Select" title="Menu Select" src="images/hk_menu.png">
@@ -470,35 +474,35 @@
             In section <strong>&#60;areas&#62;</strong> check for AREA0547. If is not used it can be used for our application. If it is check for a free area (between AREA0500 and AREA0599).</p>
             <h3>4.b If systemconfiguration.ini was found, update the file</h3>
             <p>Add in section [areas] the following line: <i>(use a free number if AREA0547 is used)</i></p>
-            <p><code>AREA0547= name:=cam840, dialog:=cam840adialog, panel:=SlHdStdHeaderPanel </code></p>
+            <p><code>AREA0547= name:= cam840, dialog:= cam840adialog, panel:= SlHdStdHeaderPanel </code></p>
             <p>Add in section [dialogs] the following line: <i>(use the same number as for AREA)</i></p>
-            <p><code>DLG0547= name:=cam840adialog, implementation:=slgfw.SlGfwHmiDialog, process:=SlHmiHost1, preload:=true, terminate:=false, cmdline:="-conf cam840adialog.hmi"</code></p>
+            <p><code>DLG0547= name:= cam840adialog, implementation := slgfw.SlGfwHmiDialog, process := SlHmiHost1, preload := true, terminate := false, cmdline := "-conf cam840adialog.hmi "</code></p>
             <p><code><strong>systemconfiguration.ini</strong><br>
             ...<br>
             [areas]<br>
-            AREA0547= name:=cam840, dialog:=cam840adialog, panel:=SlHdStdHeaderPanel<br>
+            AREA0547= name:= cam840, dialog:= cam840adialog, panel:= SlHdStdHeaderPanel<br>
             [dialogs]<br>
-            DLG0547= name:=cam840adialog, implementation:=slgfw.SlGfwHmiDialog, process:=SlHmiHost1, preload:=true, terminate:=false, cmdline:="-conf cam840adialog.hmi"<br>
+            DLG0547= name := cam840adialog, implementation := slgfw.SlGfwHmiDialog, process := SlHmiHost1, preload := true, terminate := false, cmdline := "-conf cam840adialog.hmi "<br>
             ...</code></p>
-            <h3>4.c If systemconfiguration.xml was found...</h3>
+            <h3>4.c If systemconfiguration .xml was found...</h3>
             <p>Check for AREA0547 in file. If is not used it can be used for our application. If it is check for a free area (between AREA0500 and AREA0599)<br>
             Use this area to create a new systemconfiguration.ini file as explained at 4.d</p>
-            <h3>4.d If neither systemconfiguration.ini or systemconfiguration.xml were found...</h3>
+            <h3>4.d If neither systemconfiguration .ini or systemconfiguration .xml were found...</h3>
             <p>Create a new systemconfiguration.ini in Manufacturer folder:</p>
             <p><code><strong>systemconfiguration.ini</strong><br>
             [areas]<br>
-            AREA0547= name:=cam840, dialog:=cam840adialog, panel:=SlHdStdHeaderPanel<br>
+            AREA0547= name := cam840, dialog := cam840adialog, panel := SlHdStdHeaderPanel<br>
             [dialogs]<br>
-            DLG0547= name:=cam840adialog, implementation:=slgfw.SlGfwHmiDialog, process:=SlHmiHost1, preload:=true, terminate:=false, cmdline:="-conf cam840adialog.hmi"<br>
+            DLG0547= name := cam840adialog, implementation := slgfw.SlGfwHmiDialog, process := SlHmiHost1, preload := true, terminate := false, cmdline := "-conf cam840adialog.hmi "<br>
             </code></p>
             <h3>5.a Check slamconfig.ini (or slamconfig.xls) file (optional)</h3>
             <p>Go to Operating Area 'Setup', 'System data' menu and create a new slamconfig.ini file (or update if already exists).</p>
             <p></code><strong>slamconfig.ini</strong><br>
             [cam840]<br>
             Visible=True<br>
-            TextId=Cam840&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;a text to be display on the softkey<br>
-            Picture=logo_tasta.png&nbsp;&nbsp;&nbsp;&nbsp;;a logo, saved in ico folder, to be display on the softkey<br>
-            SoftkeyPosition=7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;position of the key in menu<br>
+            TextId=Cam840 ;a text to be display on the softkey<br>
+            Picture=logo_tasta.png ;a logo, saved in ico folder, to be display on the softkey<br>
+            SoftkeyPosition=7 ;position of the key in menu<br>
             </code></p>
         </section>
     </main>

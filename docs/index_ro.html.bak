@@ -457,7 +457,7 @@
             </div>
             <p>Continutul folderului 'appl' [fisierele: cam840a.dll, libcam840a.so si cam840adialog.hmi] din arhiva aplicatiei trebuie sa fie copiat aici.</p>
             <p>In sistemul de fisiere, acest folder este localizat la 'cale Sinumerik Operate'/appl (de ex. <code>/card/oem/sinumerik/hmi/appl</code> pentru un sistem Linux)</p>
-            <h3>4.a Verificare fisiere systemconfiguration .ini (sau systemconfiguration .xml)</h3>
+            <h3>4.a Verificare fisiere systemconfiguration.ini (sau systemconfiguration.xml)</h3>
             <p>Aria de Operare 'Setup', meniu 'System data' ...</p>
             <div class="help-section">
                 <img alt="Menu Select" title="Menu Select" src="images/hk_menu.png">
@@ -472,37 +472,37 @@
             In sectiunea [areas] trebuie verificat daca este utilizata deja AREA0547. Daca nu este utilizata, aceasta poate fi folosita pentru instalarea aplicatiei. Daca este deja utilizata trebuie cautat un numar liber (aflat intre AREA0500 si AREA0599).<</p>
             <p>Daca fisierul 'systemconfiguration.xml' exista in unul din directoarele 'Manufacturer' sau 'User', acest fisier trebuie deschis in editor si apoi trebuie cautata sectiunea <strong>&#60;areas&#62;</strong><br>
             In sectiunea <strong>&#60;areas&#62;</strong> trebuie verificat daca este utilizata deja AREA0547. Daca nu este utilizata, aceasta poate fi folosita pentru instalarea aplicatiei. Daca este deja utilizata trebuie cautat un numar liber (aflat intre AREA0500 si AREA0599).</p>
-            <h3>4.b Daca a fost gasit systemconfiguration .ini: actualizare fisier</h3>
+            <h3>4.b Daca a fost gasit systemconfiguration.ini: actualizare fisier</h3>
             <p>In sectiunea [areas] va fi adaugata linia: <i>(daca AREA0547 este deja utilizata va trebui folosit un numar liber)</i></p>
-            <p><code>AREA0547= name:= cam840, dialog := cam840adialog, panel := SlHdStdHeaderPanel </code></p>
+            <p><code>AREA0547= name:=cam840, dialog:=cam840adialog, panel:=SlHdStdHeaderPanel </code></p>
             <p>In sectiunea [dialogs] va fi adaugata linia: <i>(trebuie folosit acelasi numar ca pentru AREA)</i></p>
-            <p><code>DLG0547= name:= cam840adialog, implementation := slgfw.SlGfwHmiDialog, process := SlHmiHost1, preload := true, terminate := false, cmdline := "-conf cam840adialog.hmi "</code></p>
+            <p><code>DLG0547= name:=cam840adialog, implementation:=slgfw.SlGfwHmiDialog, process:=SlHmiHost1, preload:=true, terminate:=false, cmdline:="-conf cam840adialog.hmi"</code></p>
             <p><code><strong>systemconfiguration.ini</strong><br>
             ...<br>
             [areas]<br>
-            AREA0547= name:= cam840, dialog:= cam840adialog, panel:= SlHdStdHeaderPanel<br>
+            AREA0547= name:=cam840, dialog:=cam840adialog, panel:=SlHdStdHeaderPanel<br>
             [dialogs]<br>
-            DLG0547= name := cam840adialog, implementation := slgfw.SlGfwHmiDialog, process := SlHmiHost1, preload := true, terminate := false, cmdline := "-conf cam840adialog.hmi "<br>
+            DLG0547= name:=cam840adialog, implementation:=slgfw.SlGfwHmiDialog, process:=SlHmiHost1, preload:=true, terminate:=false, cmdline:="-conf cam840adialog.hmi"<br>
             ...</code></p>
-            <h3>4.c Daca a fost gasit systemconfiguration .xml ...</h3>
+            <h3>4.c Daca a fost gasit systemconfiguration.xml ...</h3>
             <p>Daca AREA0547 nu a fost utilizata in fisier atunci poate fi utilizata pentru noua aplicatie. Daca a fost deja utilizata trebuie cautata o alta arie libera (intre AREA0500 si AREA0599)<br>
             Aceasta arie poate fi utilizata intr-un fisier systemconfiguration.ini ca la 4.d</p>
-            <h3>4.d Daca nu au fost gasite nici systemconfiguration .ini nici systemconfiguration .xml ...</h3>
+            <h3>4.d Daca nu au fost gasite nici systemconfiguration.ini nici systemconfiguration.xml ...</h3>
             <p>In directorul Manufacturer va fi creat un fisier nou numit systemconfiguration.ini:</p>
             <p><code><strong>systemconfiguration.ini</strong><br>
             [areas]<br>
-            AREA0547= name := cam840, dialog := cam840adialog, panel := SlHdStdHeaderPanel<br>
+            AREA0547= name:=cam840, dialog:=cam840adialog, panel:=SlHdStdHeaderPanel<br>
             [dialogs]<br>
-            DLG0547= name := cam840adialog, implementation := slgfw.SlGfwHmiDialog, process := SlHmiHost1, preload := true, terminate := false, cmdline := "-conf cam840adialog.hmi "<br>
+            DLG0547= name:=cam840adialog, implementation:=slgfw.SlGfwHmiDialog, process:=SlHmiHost1, preload:=true, terminate:=false, cmdline:="-conf cam840adialog.hmi"<br>
             </code></p>
             <h3>5.a Verificare fisier slamconfig.ini (sau slamconfig.xls) (optional)</h3>
             <p>In Aria de Operare 'Setup', meniul 'System data' va fi creat un fisier nou slamconfig.ini (sau actualizat daca deja exista).</p>
             <p></code><strong>slamconfig.ini</strong><br>
             [cam840]<br>
             Visible=True<br>
-            TextId=Cam840 ;a text to be display on the softkey<br>
-            Picture=logo_tasta.png ;a logo, saved in ico folder, to be display on the softkey<br>
-            SoftkeyPosition=7 ;position of the key in menu<br>
+            TextId=Cam840&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;a text to be display on the softkey<br>
+            Picture=logo_tasta.png&nbsp;&nbsp;&nbsp;&nbsp;;a logo, saved in ico folder, to be display on the softkey<br>
+            SoftkeyPosition=7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;position of the key in menu<br>
             </code></p>
         </section>
     </main>
