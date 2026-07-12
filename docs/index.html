@@ -7,13 +7,16 @@
     <meta name="description" content="Create MyHMI /3GL Examples">
     <title>Create MyHMI /3GL Examples</title>
     <style>
+    html {
+        scroll-behavior: smooth;
+    }
     :root {
         --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         --bg-app: #f5f6f8;
         --bg-surface: #ffffff;
         --bg-header:  #ffffff;
         --bg-toolbar: #303050;
-        --bk-toolbar: linear-gradient(to left, #00000F, #505070);
+        --bg-toolbar-grad: linear-gradient(to left, #00000F, #505070);
         --text-main: #202124;
         --text-muted: #5f6368;
         --text-toolbar: #e3e3e3;
@@ -80,6 +83,7 @@
         display: flex;
         align-items: baseline;
         gap: 8px;
+        flex-wrap: wrap;
     }
     .logo-main {
         font-size: 2rem;
@@ -99,7 +103,7 @@
         border-radius: 4px;
     }
     .toolbar {
-        background: var(--bk-toolbar);
+        background: var(--bg-toolbar-grad);
         border-bottom: 1px solid var(--border-color);
         display: flex;
         flex-wrap: wrap;
@@ -114,7 +118,7 @@
         display: flex;
         gap: 4px;
     }
-    .toolbar button {
+    .toolbar a, .toolbar button {
         background: transparent;
         border: none;
         border-radius: 4px;
@@ -128,11 +132,13 @@
         transition: background-color 0.15s ease;
         padding: 4px 10px;
         font-size: 0.9rem;
+        text-decoration: none;
     }
-    .toolbar button:hover {
+    .toolbar a:hover, .toolbar button:hover {
         background-color: var(--hover-color);
+        text-decoration: none;
     }
-    .toolbar button img {
+    .toolbar a img, .toolbar button img {
         width: 20px;
         height: 20px;
         object-fit: contain;
@@ -185,7 +191,7 @@
         border-radius: 2px; 
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
     }
-    .hero-text-box h1 {
+    .hero-text-box h2 {
         color: #ffffff;
         font-size: 2.5rem;
         margin: 0;
@@ -198,6 +204,11 @@
         flex-direction: column;
         gap: 2.5rem;
         flex: 1;
+    }
+    .apps-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 2rem;
     }
     .card {
         background-color: var(--bg-surface);
@@ -265,6 +276,21 @@
         font-size: 0.95rem;
         line-height: 1.4;
     }
+    pre {
+        background: rgba(0, 0, 0, 0.04);
+        border-left: 3px solid var(--accent-color);
+        padding: 12px;
+        border-radius: 4px;
+        margin: 1rem 0;
+        overflow-x: auto;
+    }
+    body.dark pre {
+        background: rgba(255, 255, 255, 0.05);
+    }
+    code {
+        font-family: Consolas, Monaco, 'Andale Mono', monospace;
+        font-size: 0.9rem;
+    }
     .footer {
         background-color: var(--bg-surface);
         border-top: 1px solid var(--border-color);
@@ -291,65 +317,67 @@
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
-    /*.overview-sub-card {
-        flex: 1;
-    }*/
     .overview-sub-card.media-block {
         width: 100%;
         max-width: 100%; 
         margin: 0;
     }
-	.overview-sub-card.media-block img {
-		width: 100%;
-		height: auto;
-		display: block;
-	}
-    @media (min-width: 1000px) {
+    .overview-sub-card.media-block img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+    @media (min-width: 500px) {
         .feature-overview-container {
             grid-template-columns: minmax(300px, max-content) 1fr;
             align-items: start;
         }
+       .apps-grid {
+           display: grid;
+           grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+           gap: 2rem;
+       }
     }
     </style>
 </head>
-<body>
+<body id="top">
     <header class="app-header">
         <div class="header-title-group">
             <h1 class="logo-main">Create MyHMI /3GL</h1>
             <h2 class="logo-sub">Examples</h2>
         </div>
-        <div class="version-badge">v24.01.21; Ian.2024</div>
+        <div class="version-badge">v24.01.21; Jan.2024</div>
     </header>
     <nav class="toolbar">
         <div class="toolbar-group">
-            <button id="bt_home" class="tooltip" data-tooltip="Home">
+            <a href="http://alxcor.github.io/index.html" class="tooltip" data-tooltip="Home">
                 <img src="images/ico_home.png" alt="Home">
-            </button>
-            <button id="bt_lang" class="tooltip" data-tooltip="Limba">
+            </a>
+            <a href="index_ro.html" class="tooltip" data-tooltip="Limba">
                 <img src="images/ico_lang.png" alt="Limba">
-            </button>
-            <button id="bt_dark" class="tooltip" data-tooltip="Toggle Theme">
+            </a>
+            <button id="bt_dark" type="button" class="tooltip" data-tooltip="Toggle Theme">
                 <img src="images/ico_dark.png" alt="Theme">
             </button>
         </div>
         <div class="divider"></div>
         <div class="toolbar-group">
-            <button id="bt_github" class="tooltip" data-tooltip="GitHub Repository">Repository</button>
+            <a href="http://github.com/alxcor/cam840" target="_blank" class="tooltip" data-tooltip="GitHub Repository">Repository</a>
         </div>
         <div class="divider"></div>
         <div class="toolbar-group">
-            <button id="nav_gototop">Top</button>
+            <a href="#top">Top</a>
         </div>
         <div class="divider"></div>
         <div class="toolbar-group">
-            <button id="nav_identify">Identify</button>
-            <button id="nav_download">Download</button>
-            <button id="nav_install">Install</button>
+            <a href="#identify-section">Identify</a>
+            <a href="#download-section">Download</a>
+            <a href="#install-section">Install</a>
         </div>
     </nav>
     <section class="hero-banner">
         <div class="hero-text-box">
-            <h1>Create MyHMI /3GL</h1>
+            <h2>Create MyHMI /3GL</h2>
         </div>
     </section>
     <main class="main-content">
@@ -381,7 +409,7 @@
             </div>
             <p>...by checking where the system data are located.</p>
             <p>If a <code>'System CF card'</code> is present, SINUMERIK Operate runs under <strong>Linux</strong> from <strong>NCU unit</strong>.</p>
-            <p>If a <code>'System HDD'</code> is present, SINUMERIK Operate runs under <strong>Windows</strong> from a <strong>PCU or IPC unit</strong>.
+            <p>If a <code>'System HDD'</code> is present, SINUMERIK Operate runs under <strong>Windows</strong> from a <strong>PCU or IPC unit</strong>.</p>
             <div class="help-section">
                 <img alt="TCU System" title="TCU System" src="images/scr_sys_tcu.png">
                 <img alt="PCU System" title="PCU System" src="images/scr_sys_pcu.png">
@@ -405,7 +433,7 @@
                 <img alt="Version" title="Version" src="images/sk_diag_version.png">
             </div>
             <div class="help-section">
-                <img alt="Version" title="Version" src="images/scr_diag_version.png"
+                <img alt="Version" title="Version" src="images/scr_diag_version.png">
             </div>
         </section>
         <section class="card" id="download-section">
@@ -470,8 +498,8 @@
             </div>
             <p>If 'systemconfiguration.ini' file exists in 'Manufacturer' or 'User' folder, open the file in editor and search for the section <strong>[areas]</strong><br>
             In section [areas] check for AREA0547. If is not used it can be used for our application. If it is check for a free area (between AREA0500 and AREA0599).</p>
-            <p>If 'systemconfiguration.xml' file exists in 'Manufacturer' or 'User' folder, open the file in editor and search for the section <strong>&#60;areas&#62;</strong><br>
-            In section <strong>&#60;areas&#62;</strong> check for AREA0547. If is not used it can be used for our application. If it is check for a free area (between AREA0500 and AREA0599).</p>
+            <p>If 'systemconfiguration.xml' file exists in 'Manufacturer' or 'User' folder, open the file in editor and search for the section <strong>&lt;areas&gt;</strong><br>
+            In section <strong>&lt;areas&gt;</strong> check for AREA0547. If is not used it can be used for our application. If it is check for a free area (between AREA0500 and AREA0599).</p>
             <h3>4.b If systemconfiguration.ini was found, update the file</h3>
             <p>Add in section [areas] the following line: <i>(use a free number if AREA0547 is used)</i></p>
             <p><code>AREA0547= name:= cam840, dialog:= cam840adialog, panel:= SlHdStdHeaderPanel </code></p>
@@ -497,7 +525,7 @@
             </code></p>
             <h3>5.a Check slamconfig.ini (or slamconfig.xls) file (optional)</h3>
             <p>Go to Operating Area 'Setup', 'System data' menu and create a new slamconfig.ini file (or update if already exists).</p>
-            <p></code><strong>slamconfig.ini</strong><br>
+            <p><code><strong>slamconfig.ini</strong><br>
             [cam840]<br>
             Visible=True<br>
             TextId=Cam840 ;a text to be display on the softkey<br>
@@ -511,32 +539,11 @@
         <span>alxcor@yahoo.com</span>
     </footer>
     <script>
-        document.getElementById('bt_home').addEventListener('click', () => {
-            window.location.href = 'http://alxcor.github.io/index.html';
-        });
-        document.getElementById('bt_lang').addEventListener('click', () => {
-            window.location.href = 'index_ro.html';
-        });
-        document.getElementById('bt_github').addEventListener('click', () => {
-            window.open('http://github.com/alxcor/sparesnet', '_blank');
-        });
-        document.getElementById('nav_gototop').addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-        document.getElementById('nav_identify').addEventListener('click', () => {
-            document.getElementById('identify-section').scrollIntoView({ behavior: 'smooth' });
-        });
-        document.getElementById('nav_download').addEventListener('click', () => {
-            document.getElementById('download-section').scrollIntoView({ behavior: 'smooth' });
-        });
-        document.getElementById('nav_install').addEventListener('click', () => {
-            document.getElementById('install-section').scrollIntoView({ behavior: 'smooth' });
-        });
         document.getElementById('bt_dark').addEventListener('click', () => {
-            const hasDarkClass = document.body.classList.contains('dark');
-            const hasLightClass = document.body.classList.contains('light');
-            const isDarkModeNow = hasDarkClass || (!hasLightClass && window.matchMedia('(prefers-color-scheme: dark)').matches);
-            if (isDarkModeNow) {
+            const isDarkNow = document.body.classList.contains('dark') || 
+                              (!document.body.classList.contains('light') 
+                              && window.matchMedia('(prefers-color-scheme: dark)').matches);
+            if (isDarkNow) {
                 document.body.classList.remove('dark');
                 document.body.classList.add('light');
             } else {
